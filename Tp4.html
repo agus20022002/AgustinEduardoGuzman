@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Productos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card p {
+      margin: 5px 0;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lista de Productos</h1>
+  <div class="grid-container" id="productos-container">
+    <!-- JS insertará aquí los productos -->
+  </div>
+
+  <script>
+    const productos = [
+      {
+        nombre: "Proteína Whey",
+        marca: "MuscleTech",
+        precio: "$45",
+        categoria: "Proteínas"
+      },
+      {
+        nombre: "Creatina Monohidratada",
+        marca: "Optimum Nutrition",
+        precio: "$30",
+        categoria: "Creatinas"
+      },
+      {
+        nombre: "BCAA 2:1:1",
+        marca: "XTEND",
+        precio: "$25",
+        categoria: "Aminoácidos"
+      },
+      {
+        nombre: "Pre Entreno C4",
+        marca: "Cellucor",
+        precio: "$35",
+        categoria: "Pre-entreno"
+      },
+      {
+        nombre: "Glutamina",
+        marca: "Universal Nutrition",
+        precio: "$20",
+        categoria: "Recuperación"
+      },
+      {
+        nombre: "Proteína Vegana",
+        marca: "Vega",
+        precio: "$40",
+        categoria: "Proteínas"
+      },
+      {
+        nombre: "Omega 3",
+        marca: "Now Foods",
+        precio: "$15",
+        categoria: "Salud general"
+      },
+      {
+        nombre: "Multivitamínico",
+        marca: "Animal Pak",
+        precio: "$28",
+        categoria: "Vitaminas"
+      },
+      {
+        nombre: "Caseína Nocturna",
+        marca: "Dymatize",
+        precio: "$38",
+        categoria: "Proteínas"
+      }
+    ];
+
+    const contenedor = document.getElementById("productos-container");
+
+    productos.map(producto => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <p><strong>Marca:</strong> ${producto.marca}</p>
+        <p><strong>Categoría:</strong> ${producto.categoria}</p>
+        <p class="price">${producto.precio}</p>
+      `;
+
+      contenedor.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
